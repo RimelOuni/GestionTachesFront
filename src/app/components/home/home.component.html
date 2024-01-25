@@ -1,0 +1,59 @@
+<!-- tache-list.component.html -->
+<section class="task-list">
+  <!-- En-tête du tableau -->
+  <div class="task task-header">
+    <div class="task-details">
+      <header class="title-status">
+        <h3>Tâche</h3>
+        <p>État - Date</p>
+      </header>
+      <p class="description">Description</p>
+    </div>
+    <div class="task-actions">Actions</div>
+  </div>
+
+  <!-- Les tâches -->
+  <article class="task" *ngFor="let tache of taches">
+    <div class="task-details">
+      <header class="title-status">
+        <h3 [ngClass]="{'completed': tache.etat}">{{ tache.titre }}</h3>
+        <p class="task-status" [ngClass]="{'completed': tache.etat}">
+          {{ tache.etat ? 'Terminée' : 'En cours' }} - {{ tache.date | date }}
+        </p>
+      </header>
+      <p class="description">{{ tache.description }}</p>
+    </div>
+    <div class="task-actions">
+      <input type="checkbox" [(ngModel)]="tache.etat" id="task{{ tache._id }}" (change)="updateEtatTache(tache)">
+      <label for="task{{ tache._id }}"></label>
+      <button (click)="showEditDialog(tache)" style="background-color: transparent; color: blue;"><i class="fas fa-edit"></i></button>
+      <button (click)="deleteTache(tache._id)" style="background-color: transparent; color: red;"><i class="fas fa-trash-alt"></i></button>
+    </div>
+  </article>
+
+  <button (click)="addTache()">Ajouter une tâche</button>
+  <button (click)="printTaskList()">Imprimer</button>
+</section>
+
+
+
+
+<!-- Ajoutez ce formulaire -->
+<div *ngIf="showAddForm">
+  <h2>Ajouter une tâche</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="titre">Titre:</label>
+    <input type="text" name="titre" [(ngModel)]="newTache.titre" required>
+
+    <label for="description">Description:</label>
+    <textarea name="description" [(ngModel)]="newTache.description" required></textarea>
+
+    <label for="date">Date:</label>
+    <input type="date" name="date" [(ngModel)]="newTache.date" required>
+
+    <button type="submit">Ajouter</button>
+    <button type="button" (click)="resetForm()">Annuler</button>
+  </form>
+</div>
+
+

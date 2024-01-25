@@ -1,0 +1,117 @@
+/* styles.css */
+.task-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .task {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  .task:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .task-details {
+    flex-grow: 1;
+  }
+  
+  .title-status {
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .title-status h3 {
+    margin-right: 10px;
+  }
+  
+  .task-status {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .description {
+    margin-top: 5px;
+  }
+  
+  .task-actions {
+    display: flex; /* Utiliser flex pour aligner les boutons */
+    align-items: center; /* Aligner les éléments sur l'axe vertical */
+    margin-left: 10px;
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  input[type="checkbox"] + label {
+    background: #fff;
+    border: 2px solid #4CAF50;
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"]:checked + label {
+    background: #4CAF50;
+    border-color: #4CAF50;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: #777;
+  }
+  
+  button {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  form {
+    margin-top: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  textarea {
+    height: 100px;
+    width: 100%;
+  }
+
+  /* styles.css */
+/* Ajouter un style pour l'en-tête */
+.task-header {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.task-header .task-details {
+  padding: 10px;
+}
+
+.task-header h3,
+.task-header p,
+.task-header .description,
+.task-header .task-actions {
+  color: #333;
+}
+
+  
